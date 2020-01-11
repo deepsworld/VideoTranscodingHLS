@@ -9,3 +9,5 @@
 
 # Run scipt
 `bash creare-vod-hls.sh test.mp4`
+
+Source link: https://docs.peer5.com/guides/production-ready-hls-vod/#installing-ffmpeg
