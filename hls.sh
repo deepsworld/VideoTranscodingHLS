@@ -23,6 +23,9 @@ rate_monitor_buffer_ratio=1.5   # maximum buffer size between bitrate conformanc
 
 source="${1}"
 target="${2}"
+
+args="${*:3}"
+
 if [[ ! "${target}" ]]; then
   target="${source##*/}" # leave only last component of path
   target="${target%.*}"  # strip extension
@@ -74,7 +77,7 @@ done
 
 # start conversion
 echo -e "Executing command:\nffmpeg ${misc_params} -i ${source} ${cmd}"
-ffmpeg ${misc_params} -i ${source} ${cmd}
+ffmpeg ${misc_params} -i ${source} ${cmd} ${args}
 
 # create master playlist file
 echo -e "${master_playlist}" > ${target}/playlist.m3u8
